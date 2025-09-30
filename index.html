@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denver Corporate Law Attorney | Expert Legal Services for Business & Government</title>
+    <meta name="description" content="Premier Denver corporate law attorney specializing in business legal services for mid-sized companies and government organizations. Expert corporate counsel with proven results.">
+    <meta name="keywords" content="Denver corporate attorney, business lawyer Colorado, government legal services, corporate law firm Denver">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1e3a8a',
+                        gold: '#fbbf24',
+                        darkgray: '#374151'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .bg-white { background-color: #1f2937; }
+            .text-gray-800 { color: #f9fafb; }
+            .text-gray-600 { color: #d1d5db; }
+            .bg-gray-50 { background-color: #111827; }
+        }
+        
+        /* Form validation styles */
+        .invalid {
+            border-color: #ef4444 !important;
+            background-color: #fef2f2 !important;
+        }
+        
+        .valid {
+            border-color: #10b981 !important;
+            background-color: #f0fdf4 !important;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #fbbf24;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Accessibility improvements */
+        .focus-visible:focus-visible {
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+</head>
+
+<body class="bg-darkgray text-white font-sans leading-relaxed">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header Navigation -->
+    <header class="fixed w-full bg-navy/95 backdrop-blur-sm shadow-lg z-50" role="banner">
+        <nav class="container mx-auto px-4 py-4" role="navigation" aria-label="Main navigation">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gold rounded-lg flex items-center justify-center">
+                        <i class="fas fa-scale-balanced text-navy text-xl" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-serif font-bold text-white">Denver Corporate Law</h1>
+                        <p class="text-gold text-sm">Expert Legal Counsel</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-white hover:text-gold transition-colors focus-visible" aria-label="View our services">Services</a>
+                    <a href="#about" class="text-white hover:text-gold transition-colors focus-visible" aria-label="Learn about us">About</a>
+                    <a href="#contact" class="text-white hover:text-gold transition-colors focus-visible" aria-label="Contact us">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus-visible" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-navy z-40 md:hidden">
+                <div class="p-4">
+                    <button id="close-menu" class="text-white text-xl mb-8 focus-visible" aria-label="Close mobile menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="flex flex-col space-y-6">
+                        <a href="#services" class="text-white text-xl hover:text-gold transition-colors mobile-menu-link">Services</a>
+                        <a href="#about" class="text-white text-xl hover:text-gold transition-colors mobile-menu-link">About</a>
+                        <a href="#contact" class="text-white text-xl hover:text-gold transition-colors mobile-menu-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-bg min-h-screen flex items-center relative" role="banner">
+            <div class="container mx-auto px-4 py-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 fade-in">
+                        Premier <span class="text-gold">Corporate Law</span> Services
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-200 fade-in max-w-3xl mx-auto">
+                        Trusted legal expertise for mid-sized companies and government organizations throughout Denver and Colorado
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                        <a href="#contact" class="bg-gold hover:bg-yellow-500 text-navy px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 focus-visible" aria-label="Schedule a consultation">
+                            Schedule Consultation
+                        </a>
+                        <a href="#services" class="border-2 border-white text-white hover:bg-white hover:text-navy px-8 py-4 rounded-lg font-semibold text-lg transition-all focus-visible" aria-label="View our services">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-gold text-2xl"></i>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding bg-white text-gray-800" role="region" aria-labelledby="services-heading">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 id="services-heading" class="text-4xl md:text-5xl font-serif font-bold mb-6 text-navy">
+                        Expert Corporate Legal Services
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive legal solutions tailored for modern businesses and government entities, delivered with precision and unwavering commitment to excellence.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-building text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Corporate Formation & Governance</h3>
+                        <p class="text-gray-600 mb-4">
+                            Strategic guidance for business entity formation, corporate structure optimization, and ongoing governance compliance. We ensure your organization operates with legal precision and regulatory adherence.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Entity Selection & Formation</div>
+                        <div class="text-gold font-semibold">✓ Board Governance</div>
+                        <div class="text-gold font-semibold">✓ Compliance Management</div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-handshake text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Contract & Transaction Law</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sophisticated contract drafting, negotiation, and transaction management. From complex M&A deals to vendor agreements, we protect your interests with meticulous attention to detail.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Contract Drafting & Review</div>
+                        <div class="text-gold font-semibold">✓ M&A Transactions</div>
+                        <div class="text-gold font-semibold">✓ Commercial Negotiations</div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-shield-alt text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Regulatory Compliance</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive regulatory guidance for complex compliance requirements. We navigate federal, state, and local regulations to keep your organization compliant and risk-free.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Regulatory Analysis</div>
+                        <div class="text-gold font-semibold">✓ Compliance Programs</div>
+                        <div class="text-gold font-semibold">✓ Government Relations</div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-users text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Employment & Labor Law</h3>
+                        <p class="text-gray-600 mb-4">
+                            Strategic employment law counsel covering policy development, workplace compliance, and dispute resolution. We help organizations maintain positive employee relations while mitigating legal risks.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Policy Development</div>
+                        <div class="text-gold font-semibold">✓ Workplace Compliance</div>
+                        <div class="text-gold font-semibold">✓ Dispute Resolution</div>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-landmark text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Government Contract Law</h3>
+                        <p class="text-gray-600 mb-4">
+                            Specialized expertise in government contracting, procurement processes, and public sector compliance. We guide organizations through complex federal and state contracting requirements.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Procurement Strategy</div>
+                        <div class="text-gold font-semibold">✓ Contract Administration</div>
+                        <div class="text-gold font-semibold">✓ Bid Protests</div>
+                    </div>
+                    
+                    <!-- Service 6 -->
+                    <div class="bg-gray-50 p-8 rounded-xl card-hover fade-in">
+                        <div class="w-16 h-16 bg-navy rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-gold text-2xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-navy">Risk Management & Litigation</h3>
+                        <p class="text-gray-600 mb-4">
+                            Proactive risk assessment and strategic litigation management. We help organizations identify potential legal exposures and provide aggressive representation when disputes arise.
+                        </p>
+                        <div class="text-gold font-semibold">✓ Risk Assessment</div>
+                        <div class="text-gold font-semibold">✓ Litigation Strategy</div>
+                        <div class="text-gold font-semibold">✓ Dispute Prevention</div>
+                    </div>
+                </div>
+                
+                <!-- Quality Assurance -->
+                <div class="mt-16 bg-navy p-8 rounded-xl text-center">
+                    <h3 class="text-3xl font-serif font-bold mb-4 text-gold">Quality You Can Trust</h3>
+                    <p class="text-xl text-gray-200 max-w-4xl mx-auto">
+                        Our commitment to excellence is reflected in every client engagement. We combine deep legal expertise with practical business acumen, delivering results that protect your interests and advance your objectives. With a track record of successful outcomes and client satisfaction, we are the trusted choice for sophisticated legal needs.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-darkgray" role="region" aria-labelledby="about-heading">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h2 id="about-heading" class="text-4xl md:text-5xl font-serif font-bold mb-8 text-gold">
+                            About Denver Corporate Law
+                        </h2>
+                        <div class="prose prose-lg text-gray-300">
+                            <p class="mb-6">
+                                Founded on the principles of excellence, integrity, and client-focused service, Denver Corporate Law has established itself as the premier destination for sophisticated corporate legal counsel in Colorado. Our practice serves as a strategic partner to mid-sized companies and government organizations throughout the Denver metropolitan area and beyond.
+                            </p>
+                            <p class="mb-6">
+                                With decades of combined experience in complex corporate transactions, regulatory compliance, and strategic business counsel, our team brings unparalleled expertise to every client engagement. We understand that in today's rapidly evolving business landscape, legal counsel must be more than reactive—it must be strategic, proactive, and aligned with your organizational objectives.
+                            </p>
+                            <p class="mb-8">
+                                Our approach combines the sophistication and resources of a large firm with the personalized attention and agility of a boutique practice. We pride ourselves on building lasting relationships with our clients, serving as trusted advisors who understand their unique challenges and opportunities.
+                            </p>
+                        </div>
+                        
+                        <!-- Stats -->
+                        <div class="grid grid-cols-3 gap-8 mb-8">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold mb-2">12+</div>
+                                <div class="text-gray-400">Years Experience</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold mb-2">500+</div>
+                                <div class="text-gray-400">Successful Cases</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold mb-2">98%</div>
+                                <div class="text-gray-400">Client Satisfaction</div>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="bg-gold hover:bg-yellow-500 text-navy px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block focus-visible">
+                            Partner With Us
+                        </a>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Professional Denver law office interior" 
+                                 class="rounded-xl shadow-2xl w-full h-96 object-cover">
+                            <div class="absolute inset-0 bg-navy/20 rounded-xl"></div>
+                        </div>
+                        
+                        <!-- Credentials -->
+                        <div class="mt-8 bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                            <h3 class="text-xl font-semibold mb-4 text-gold">Professional Credentials</h3>
+                            <div class="space-y-2 text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-gold mr-3" aria-hidden="true"></i>
+                                    Colorado Bar Association
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-gold mr-3" aria-hidden="true"></i>
+                                    American Bar Association
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-gold mr-3" aria-hidden="true"></i>
+                                    Denver Bar Association
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-gold mr-3" aria-hidden="true"></i>
+                                    Martindale-Hubbell AV Rated
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-white text-gray-800" role="region" aria-labelledby="contact-heading">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 id="contact-heading" class="text-4xl md:text-5xl font-serif font-bold mb-6 text-navy">
+                        Contact Our Legal Team
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Ready to discuss your legal needs? Schedule a consultation with our experienced corporate law team. We're here to provide the strategic counsel your organization deserves.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-semibold mb-6 text-navy">Schedule Your Consultation</h3>
+                        <form id="contact-form" class="space-y-6" novalidate>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base"
+                                           aria-describedby="firstName-error">
+                                    <div id="firstName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-semibold text-gray-700 mb-2">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base"
+                                           aria-describedby="lastName-error">
+                                    <div id="lastName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="organization" class="block text-sm font-semibold text-gray-700 mb-2">Organization</label>
+                                <input type="text" id="organization" name="organization" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base"
+                                       aria-describedby="email-error">
+                                <div id="email-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-semibold text-gray-700 mb-2">Service Interest</label>
+                                <select id="service" name="service" 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base">
+                                    <option value="">Select a service</option>
+                                    <option value="corporate-formation">Corporate Formation & Governance</option>
+                                    <option value="contract-law">Contract & Transaction Law</option>
+                                    <option value="regulatory-compliance">Regulatory Compliance</option>
+                                    <option value="employment-law">Employment & Labor Law</option>
+                                    <option value="government-contracts">Government Contract Law</option>
+                                    <option value="risk-management">Risk Management & Litigation</option>
+                                    <option value="general-consultation">General Consultation</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-base"
+                                          placeholder="Please describe your legal needs or questions..."
+                                          aria-describedby="message-error"></textarea>
+                                <div id="message-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+                            </div>
+                            
+                            <button type="submit" id="submit-btn" 
+                                    class="w-full bg-navy hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all focus-visible disabled:opacity-50 disabled:cursor-not-allowed">
+                                <span id="submit-text">Send Message</span>
+                                <span id="submit-loading" class="hidden">
+                                    <span class="loading mr-2"></span>
+                                    Sending...
+                                </span>
+                            </button>
+                            
+                            <div id="form-message" class="hidden p-4 rounded-lg" role="alert"></div>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-semibold mb-6 text-navy">Get In Touch</h3>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-gold" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy mb-1">Office Location</h4>
+                                    <p class="text-gray-600">
+                                        1001 17th Street, Suite 1700<br>
+                                        Denver, CO 80202
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-gold" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy mb-1">Phone</h4>
+                                    <p class="text-gray-600">
+                                        <a href="tel:+13035551234" class="hover:text-navy transition-colors">(303) 555-1234</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-gold" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy mb-1">Email</h4>
+                                    <p class="text-gray-600">
+                                        <a href="mailto:contact@denvercorporatelaw.com" class="hover:text-navy transition-colors">contact@denvercorporatelaw.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-gold" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy mb-1">Office Hours</h4>
+                                    <p class="text-gray-600">
+                                        Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                        Saturday: By Appointment<br>
+                                        Sunday: Closed
+                                    </p>
+									<br>
+									<br>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map placeholder -->
+                        <div class="bg-white-200 h-64 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <!-- <i class="fas fa-map text-4xl mb-2" aria-hidden="true"></i>  -->
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.5893692106247!2d-104.99650528833779!3d39.748873895897816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c78da5c155555%3A0xf2da45721ac5e829!2s1001%2017th%20St%20Suite%201700%2C%20Denver%2C%20CO%2080202!5e0!3m2!1sen!2sus!4v1759187124191!5m2!1sen!2sus" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <!-- <p>Interactive Map<br>Denver, CO Location</p> -->
+								<br>
+								<br>
+								<br>
+                            </div>
+                        </div>
+                        
+                        <!-- Emergency Contact -->
+                        <div class="mt-6 bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                            <div class="flex items-center">
+                                <i class="fas fa-exclamation-triangle text-red-500 mr-3" aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="font-semibold text-red-800">Emergency Legal Matters</h4>
+                                    <p class="text-red-700 text-sm">For urgent legal matters requiring immediate attention, call our emergency line: <a href="tel:+13035551235" class="font-semibold">(303) 555-1235</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
+                            <i class="fas fa-scale-balanced text-navy" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-serif font-bold">Denver Corporate Law</h3>
+                            <p class="text-gold text-sm">Expert Legal Counsel</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Providing exceptional corporate legal services to mid-sized companies and government organizations throughout Colorado.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="#services" class="text-gray-300 hover:text-gold transition-colors block">Services</a>
+                        <a href="#about" class="text-gray-300 hover:text-gold transition-colors block">About</a>
+                        <a href="#contact" class="text-gray-300 hover:text-gold transition-colors block">Contact</a>
+                        <a href="mailto:contact@denvercorporatelaw.com" class="text-gray-300 hover:text-gold transition-colors block">Email Us</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <p>© 2024 Denver Corporate Law</p>
+                        <p>All rights reserved</p>
+                        <p class="text-xs">
+                            Attorney Advertising. Prior results do not guarantee a similar outcome.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection and support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form validation and submission
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitLoading = document.getElementById('submit-loading');
+        const formMessage = document.getElementById('form-message');
+
+        // Validation functions
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldName = field.name;
+            const errorElement = document.getElementById(`${fieldName}-error`);
+            let isValid = true;
+            let errorMessage = '';
+
+            // Clear previous validation state
+            field.classList.remove('invalid', 'valid');
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.classList.add('hidden');
+            }
+
+            // Required field validation
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1).replace(/([A-Z])/g, ' $1')} is required.`;
+            }
+
+            // Email validation
+            if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address.';
+                }
+            }
+
+            // Phone validation (optional field)
+            if (field.type === 'tel' && value) {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                const cleanPhone = value.replace(/[\s\-\(\)\.]/g, '');
+                if (!phoneRegex.test(cleanPhone)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid phone number.';
+                }
+            }
+
+            // Display validation result
+            if (errorElement && errorMessage) {
+                errorElement.textContent = errorMessage;
+                errorElement.classList.remove('hidden');
+            }
+
+            field.classList.add(isValid ? 'valid' : 'invalid');
+            return isValid;
+        }
+
+        function validateForm() {
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+            // Validate optional email field if filled
+            const emailField = document.getElementById('email');
+            if (emailField.value.trim()) {
+                if (!validateField(emailField)) {
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation
+        const formFields = contactForm.querySelectorAll('input, textarea, select');
+        formFields.forEach(field => {
+            field.addEventListener('blur', () => validateField(field));
+            field.addEventListener('input', () => {
+                if (field.classList.contains('invalid')) {
+                    validateField(field);
+                }
+            });
+        });
+
+        // Form submission
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                showFormMessage('Please correct the errors above.', 'error');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+
+            try {
+                // Simulate form submission delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData);
+
+                // Log form data (in real implementation, send to server)
+                console.log('Form submitted:', data);
+
+                // Show success message
+                showFormMessage('Thank you for your message! We will contact you within 24 hours to discuss your legal needs.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                formFields.forEach(field => field.classList.remove('valid', 'invalid'));
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showFormMessage('There was an error sending your message. Please try again or contact us directly.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                submitLoading.classList.add('hidden');
+            }
+        });
+
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `p-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-red-100 text-red-800 border border-red-200'}`;
+            formMessage.classList.remove('hidden');
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 10000);
+        }
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Performance optimization: Lazy load heavy content
+        window.addEventListener('load', function() {
+            // Initialize any heavy components after page load
+            console.log('Denver Corporate Law website loaded successfully');
+        });
+
+        // Error handling for missing elements
+        function safelyExecute(fn) {
+            try {
+                fn();
+            } catch (error) {
+                console.error('Non-critical error:', error);
+            }
+        }
+
+        // Accessibility enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add skip links functionality
+            const skipLink = document.querySelector('.skip-link');
+            if (skipLink) {
+                skipLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.focus();
+                        target.scrollIntoView();
+                    }
+                });
+            }
+
+            // Add focus indicators for better accessibility
+            safelyExecute(() => {
+                const focusableElements = document.querySelectorAll('a, button, input, textarea, select');
+                focusableElements.forEach(element => {
+                    element.addEventListener('focus', function() {
+                        this.style.outline = '2px solid #fbbf24';
+                        this.style.outlineOffset = '2px';
+                    });
+                    element.addEventListener('blur', function() {
+                        this.style.outline = '';
+                        this.style.outlineOffset = '';
+                    });
+                });
+            });
+        });
+
+        // Analytics and performance monitoring (placeholder)
+        function trackEvent(eventName, eventData) {
+            console.log(`Event: ${eventName}`, eventData);
+            // In real implementation, send to analytics service
+        }
+
+        // Track form interactions
+        contactForm.addEventListener('submit', () => {
+            trackEvent('form_submission', { form: 'contact' });
+        });
+
+        // Track navigation clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                trackEvent('navigation_click', { 
+                    target: e.target.textContent,
+                    href: e.target.href 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
